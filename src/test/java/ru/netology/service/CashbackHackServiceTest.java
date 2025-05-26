@@ -1,31 +1,30 @@
 package ru.netology.service;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class CashbackHackServiceTest {
-
     @Test
-    public void shouldReturn100WhenAmountIs900() {
+    public void shouldReturn100WhenAmount900() {
         CashbackHackService service = new CashbackHackService();
-        int actual = service.remain(900);
         int expected = 100;
-        Assert.assertEquals(actual, expected);
+        int actual = service.remain(900);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldReturn0WhenAmountIs1000() {
+    public void shouldReturn0WhenAmount1000() {
         CashbackHackService service = new CashbackHackService();
-        int actual = service.remain(1000);
         int expected = 0;
-        Assert.assertEquals(actual, expected);
+        int actual = service.remain(1000);
+        assertEquals(expected, actual); // Этот тест упадёт - баг!
     }
 
     @Test
-    public void shouldReturn999WhenAmountIs1() {
+    public void shouldReturn999WhenAmount1() {
         CashbackHackService service = new CashbackHackService();
-        int actual = service.remain(1);
         int expected = 999;
-        Assert.assertEquals(actual, expected);
+        int actual = service.remain(1);
+        assertEquals(expected, actual);
     }
 }
